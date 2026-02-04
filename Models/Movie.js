@@ -14,7 +14,8 @@ const movieSchema = new mongoose.Schema({
         type: String,
         required: true
         //add in regex to validate date format YYYY-MM-DD
-    }
+    },
+    reviews : [{ type: Schema.Types.ObjectId, ref: 'Review' }]
 });
 
 const Movie = mongoose.model('Movie', movieSchema);
