@@ -3,12 +3,11 @@ const {Schema, model} = mongoose;
 
 const reviewSchema = new mongoose.Schema({
     movieId: {
-        type: String,
+        type: Schema.Types.ObjectId, ref: 'Movie', 
         required: true
     },
     reviewer: {
-        type: String,
-        default: 'anonymous'
+        type: Schema.Types.ObjectId, ref: 'User'
     },
     reviewDate: {
         type: String,
@@ -22,7 +21,7 @@ const reviewSchema = new mongoose.Schema({
         type: Number,
         required: true,
         //don't allow decimals
-        min:[1, 'Must be at least one'],
+        min:[1, 'Must be at least 1'],
         max:[5, 'Must be 5 or lower']
     }
 });
