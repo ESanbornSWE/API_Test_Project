@@ -6,8 +6,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    reviews:[{ type: Schema.Types.ObjectId, ref: 'Review' }]
+    reviews:{
+        type: Array,
+        default: []
+    }
 });
 
 const User = mongoose.model('User', userSchema);
 export default User;
+
+//[{ type: Schema.Types.ObjectId, ref: 'Review' }]

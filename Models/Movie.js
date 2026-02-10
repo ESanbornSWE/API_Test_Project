@@ -15,8 +15,13 @@ const movieSchema = new mongoose.Schema({
         required: true
         //add in regex to validate date format YYYY-MM-DD
     },
-    reviews : [{ type: Schema.Types.ObjectId, ref: 'Review' }]
+    reviews : {
+        type: Array,
+        default:[]
+    }
 });
 
 const Movie = mongoose.model('Movie', movieSchema);
 export default Movie;
+
+//{ type: Schema.Types.ObjectId, ref: 'Review' }
